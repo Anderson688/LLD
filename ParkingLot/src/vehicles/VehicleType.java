@@ -1,3 +1,5 @@
+package vehicles;
+
 public enum VehicleType {
 
     TWO_WHEELER(10),
