@@ -23,11 +23,11 @@ public class ParkingSpot {
         return assignedVehicle == null && this.type.canAccommodate(vehicle.getType());
     }
 
-    public synchronized void assignVehicle(Vehicle vehicle) {
+    public void assignVehicle(Vehicle vehicle) {
         this.assignedVehicle = vehicle;
     }
 
-    public synchronized void removeVehicle() {
+    public void removeVehicle() {
         this.assignedVehicle = null;
     }
 

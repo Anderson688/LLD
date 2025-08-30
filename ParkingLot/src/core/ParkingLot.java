@@ -60,9 +60,11 @@ public class ParkingLot {
     }
 
     public Optional<ParkingSpot> findAndAssignSpot(Vehicle vehicle, Entrance entranceGate) {
-        Optional<ParkingSpot> spot = spotAssignmentStrategy.findSpot(this.floors, vehicle);
-        spot.ifPresent(s -> s.assignVehicle(vehicle));
-        return spot;
+        synchronized (this) {
+            Optional<ParkingSpot> spot = spotAssignmentStrategy.findSpot(this.floors, vehicle);
+            spot.ifPresent(s -> s.assignVehicle(vehicle));
+            return spot;
+        }
     }
 
     public void releaseSpot(ParkingSpot spot) {
