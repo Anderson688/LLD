@@ -1,6 +1,6 @@
 package payment;
 
-public class CardPaymentStrategy implements PaymentStrategy {
+public class CreditCardPayment implements Payment {
     @Override
     public boolean pay(double amount) {
         System.out.println("Processing card payment of $" + amount);

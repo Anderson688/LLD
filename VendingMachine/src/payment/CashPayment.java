@@ -1,6 +1,6 @@
 package payment;
 
-public class CoinPaymentStrategy implements PaymentStrategy {
+public class CashPayment implements Payment {
     @Override
     public boolean pay(double amount) {
         System.out.println("Processing coin payment of $" + amount);

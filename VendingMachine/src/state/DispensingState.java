@@ -2,6 +2,7 @@ package state;
 
 import core.VendingMachine;
 import inventory.Item;
+import payment.Payment;
 
 public class DispensingState implements VendingMachineState {
     @Override
@@ -17,12 +18,12 @@ public class DispensingState implements VendingMachineState {
         machine.getInventory().updateStock(item.getItemCode(), item.getQuantity() - 1);
         machine.setAmount(0);
         machine.setSelectedItemCode(null);
-        machine.setState(new NoCoinInsertedState());
+        machine.setState(new IdleState());
         System.out.println("Thank you!");
     }
 
     @Override
-    public void insertMoney(VendingMachine machine, double amount) {
+    public void payAmount(VendingMachine machine, Payment payment, double amount) {
         System.out.println("Invalid operation: Currently dispensing an item.");
     }
 

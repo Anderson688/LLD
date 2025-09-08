@@ -23,4 +23,8 @@ public class Inventory {
             itemMap.get(itemCode).setQuantity(quantity);
         }
     }
+
+    public boolean isItemAvailable(String itemCode) {
+        return itemMap.containsKey(itemCode) && itemMap.get(itemCode).getQuantity() > 0;
+    }
 }

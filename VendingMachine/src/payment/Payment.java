@@ -1,5 +1,5 @@
 package payment;
 
-public interface PaymentStrategy {
+public interface Payment {
     boolean pay(double amount);
 }
